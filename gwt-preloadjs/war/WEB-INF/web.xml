@@ -6,10 +6,19 @@
          xmlns="http://java.sun.com/xml/ns/javaee">
 
   <!-- Servlets -->
+  <servlet>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>com.voisintech.server.GreetingServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/gwt_preloadjs/greet</url-pattern>
+  </servlet-mapping>
   
   <!-- Default page to serve -->
   <welcome-file-list>
-    <welcome-file>Gwt_createjs.html</welcome-file>
+    <welcome-file>Gwt_preloadjs.html</welcome-file>
   </welcome-file-list>
 
 </web-app>
