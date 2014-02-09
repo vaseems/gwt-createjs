@@ -156,5 +156,50 @@ public class Ticker {
 	public static native int getMeasuredFPS(int ticks)/*-{
 		return Ticker.getMeasuredFPS(ticks);
 	}-*/;
+	
+	/**
+	 * Changes the "paused" state of the Ticker, which can be retrieved by the {{#crossLink "Ticker/getPaused"}}{{/crossLink}}
+	 * method, and is passed as the "paused" property of the <code>tick</code> event. When the ticker is paused, all
+	 * listeners will still receive a tick event, but the <code>paused</code> property will be false.
+	 *
+	 * Note that in EaselJS v0.5.0 and earlier, "pauseable" listeners would <strong>not</strong> receive the tick
+	 * callback when Ticker was paused. This is no longer the case.
+	 *
+	 * <h4>Example</h4>
+	 *      createjs.Ticker.addEventListener("tick", handleTick);
+	 *      createjs.Ticker.setPaused(true);
+	 *      function handleTick(event) {
+	 *          console.log("Paused:", event.paused, createjs.Ticker.getPaused());
+	 *      }
+	 *
+	 * @method setPaused
+	 * @static
+	 * @param {Boolean} value Indicates whether to pause (true) or unpause (false) Ticker.
+	 **/
+	public static native void setPaused(int value)/*-{
+		Ticker.setPaused(value);
+	}-*/;
+
+	/**
+	 * Returns a boolean indicating whether Ticker is currently paused, as set with {{#crossLink "Ticker/setPaused"}}{{/crossLink}}.
+	 * When the ticker is paused, all listeners will still receive a tick event, but this value will be false.
+	 *
+	 * Note that in EaselJS v0.5.0 and earlier, "pauseable" listeners would <strong>not</strong> receive the tick
+	 * callback when Ticker was paused. This is no longer the case.
+	 *
+	 * <h4>Example</h4>
+	 *      createjs.Ticker.addEventListener("tick", handleTick);
+	 *      createjs.Ticker.setPaused(true);
+	 *      function handleTick(event) {
+	 *          console.log("Paused:", createjs.Ticker.getPaused());
+	 *      }
+	 *
+	 * @method getPaused
+	 * @static
+	 * @return {Boolean} Whether the Ticker is currently paused.
+	 **/
+	public static native void getPaused()/*-{
+		return Ticker.getPaused();
+	}-*/;
 
 }
