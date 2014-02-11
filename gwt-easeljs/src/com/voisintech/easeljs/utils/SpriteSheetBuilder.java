@@ -177,4 +177,19 @@ public class SpriteSheetBuilder {
 			Object[] setupParams, Object setupScope)/*-{
 		return p.addFrame(source, sourceRect, scale, setupFunction, setupParams, setupScope);
 	}-*/;
+	
+	/**
+	 * Adds an animation that will be included in the created sprite sheet.
+	 * @method addAnimation
+	 * @param {String} name The name for the animation.
+	 * @param {Array} frames An array of frame indexes that comprise the animation. Ex. [3,6,5] would describe an animation
+	 * that played frame indexes 3, 6, and 5 in that order.
+	 * @param {String} [next] Specifies the name of the animation to continue to after this animation ends. You can
+	 * also pass false to have the animation stop when it ends. By default it will loop to the start of the same animation.
+	 * @param {Number} [frequency] Specifies a frame advance frequency for this animation. For example, a value
+	 * of 2 would cause the animation to advance every second tick.
+	 **/
+	public static native int addAnimation(String name,int[] frames,String next,int frequency)/*-{
+		return p.addAnimation(name, frames, next, frequency);
+	}-*/;
 }
